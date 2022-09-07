@@ -27,7 +27,7 @@ def dibuja_una_linea(a,b,c,d,z):
     Cy = [b,d]
     for coordenadax, coordenaday in zip(Cx,Cy):
         move_robot_to_xyz(r,x=coordenadax,y=coordenaday,z=z)
-    return move_robot_to_xyz(r,x=coordenadax,y=coordenaday,z=z)
+    return None
 
 ## Funcion dibuja_cuadrado() permite en teoría dibujar un cuadrado de largo L, eligiendo como vertice
 ## inferior un punto (x,y) arbitrario. Notar que el valor elegido para z se mantiene constante para
@@ -35,9 +35,10 @@ def dibuja_una_linea(a,b,c,d,z):
 def dibuja_cuadrado(L,x,y,z):
     CCx = [x,x,x+L,x+L,x]
     CCy = [y,y+L,y+L,y,y]
-    for cx, cy in zip(CCx,CCy)
-        move_robot_to_xyz(r,x=CCx,y=CCy,z=z)
-    return move_robot_to_xyz(r,x=CCx,y=CCy,z=z)
+    for cx, cy in zip(CCx, CCy):
+        move_robot_to_xyz(r, x=CCx, y=CCy, z=z)
+    return None
+
 
 ## Mover el robot (acá va tu código)
 #move_robot_to_xyz(r, x=20, y=100, z=200)
