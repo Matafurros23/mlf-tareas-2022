@@ -1,11 +1,13 @@
 import time
+from inverse_kinematics import *
+
 from client import RobotClient
 from inverse_kinematics import position_to_dof
 
 
 ## Conectarse al robot
 
-r = RobotClient(address="local host")  # Recuerda usar una dirección válida
+r = RobotClient(address="192.168.0.14")  # Recuerda usar una dirección válida
 r.connect()
 r.home()    # Revisa el archivo client.py para que veas qué hace esta función
 
@@ -39,9 +41,18 @@ def dibuja_cuadrado(L,x,y,z):
         move_robot_to_xyz(r, x=CCx, y=CCy, z=z)
     return None
 
+##z, y, x
+move_robot_to_xyz(r,20,0,80)
+time.sleep(2)
+move_robot_to_xyz(r,20,30,80)
+time.sleep(2)
+move_robot_to_xyz(r,20,10,80)
+time.sleep(2)
+move_robot_to_xyz(r,20,80,80)
 
 ## Mover el robot (acá va tu código)
 #move_robot_to_xyz(r, x=20, y=100, z=200)
+## posicion de descanso (185,0,241)
 
 
 

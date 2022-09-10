@@ -19,6 +19,7 @@ def position_to_dof(x, y, z):
     q0 = np.arctan(y/x) # reemplaza el cero por la ecuación que describe q0 en función de (x,y)
     L = x/np.cos(q0)
     # reemplaza el cero por la ecuación que describe q0 en función de (x,y,z)
-    q2 = np.arccos(((L-d)**2 - (z-a)**2 - a**2 - b**2)/2*a*b)  # reemplaza el cero por la ecuación que describe q0 en función de (x,y,z)
+    q2 = np.arccos( ((L-d)**2 + (z-a)**2 - b**2 - c**2)/(2*b*c))  # reemplaza el cero por la ecuación que describe q0 en función de (x,y,z)
     q1 = np.arctan(z / (L - d)) - np.arctan(b * np.sin(q2) / (a + b * np.cos(q2)))
-    return int(q0), int(q1), int(q2)    # El robot solo entiende grados sexagesimales y enteros 
+    print(q2)
+    return int(np.degrees(q0)), int(np.degrees(q1)), int(np.degrees(q2))    # El robot solo entiende grados sexagesimales y enteros
